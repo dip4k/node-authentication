@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Login App</title>
+
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/style.css"> {{!--
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"> --}}
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Passport App</a>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          {{#if user}}
+          <li class="nav-item active">
+            <a class="nav-link active" href="/">Dashboard
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          {{/if}}
+
+        </ul>
+        <ul class="navbar-nav">
+          {{#if user}}
+          <li class="nav-item">
+            <a class="nav-link" href="/users/logout">Logout</a>
+          </li>
+
+          {{else}}
+          <li class="nav-item">
+            <a class="nav-link" href="/users/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users/register">Register</a>
+          </li>
+          {{/if}}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid bg-container-cls">
+    <!-- Example row of columns -->
+    <div class="row">
+
+      <div class="col-md-12">
+
+        {{{body}}}
+      </div>
+
+      <div class="col-md-12">
+        {{#if success_msg}}
+        <div class="row">
+          <div class="col"></div>
+
+          <div class="col p-4">
+            <div class="alert alert-danger">
+              {{success_msg}}
+            </div>
+
+          </div>
+          <div class="col"></div>
+        </div>
+        {{/if}} {{#if error_msg}}
+        <div class="row">
+          <div class="col"></div>
+          <div class="col p-4">
+            <div class="alert alert-danger">
+              {{error_msg}}
+            </div>
+
+          </div>
+          <div class="col"></div>
+        </div>
+        {{/if}} {{#if error}}
+        <div class="row">
+          <div class="col"></div>
+          <div class="col p-4">
+            <div class="alert alert-danger">
+              {{error}}
+            </div>
+
+          </div>
+          <div class="col"></div>
+        </div>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+  {{!-- scripts --}}
+  <script src="/js/jquery.slim.min.js"></script>
+  <script src="/js/popper.min.js"></script>
+  <script src="/js/bootstrap.js"></script> {{!--
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
+  </script> --}}
+</body>
+
+</html>
